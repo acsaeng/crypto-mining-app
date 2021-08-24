@@ -31,7 +31,7 @@ public class BitcoinMiner {
      * @param hourlyBitcoinOutput: Bitcoin output per day
      * @param wattage: Power required to run the miner
      */
-    BitcoinMiner(String name, double hourlyBitcoinOutput, int wattage) {
+    public BitcoinMiner(String name, double hourlyBitcoinOutput, int wattage) {
         this.name = name;
         this.dailyBitcoinOutput = hourlyBitcoinOutput * 24;
         this.wattage = wattage;

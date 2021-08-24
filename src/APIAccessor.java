@@ -13,8 +13,13 @@ public class APIAccessor {
     /**
      * Information on the current price of Bitcoin
      */
-    BitcoinPrice price;
+    private BitcoinPrice price;
     
+    /**
+     * Constructor to initialize the APIAccessor object
+     */
+    public APIAccessor() {}
+
     /**
      * Retrieve data from the API
      * @param inputUrl: URL link to the API

@@ -35,7 +35,7 @@ public class MiningCalculator {
      * @param filename: input filename of the miner's data
      * @param bitcoinAmt: Bitcoin amount to be mined
      */
-    MiningCalculator(String filename, double bitcoinAmt) {
+    public MiningCalculator(String filename, double bitcoinAmt) {
         this.filename = filename;
         this.bitcoinAmt = bitcoinAmt;
         this.miners = new ArrayList<>();
