@@ -1,0 +1,57 @@
+@startuml Crypto Mining App
+
+class CryptoMiningApp {
+    + run(): void
+    + {static} main(args: String[]): void
+}
+
+class APIAccessor {
+    - price: BitcoinPrice
+    + APIAccessor()
+    + retrieveData(inputUrl: String): BitcoinPrice
+}
+
+class BitcoinMiner {
+    - name: String
+    - dailyBitcoinOutput: double
+    - wattage: int
+    - hourlyEfficiency: double[]
+    + BitcoinMiner(name: String, hourlyBitcoinOutput: double, wattage: int)
+    + getName(): String
+    + getDailyBitcoinOutput(): double
+    + getWattage(): int
+    + getHourlyEfficiency(): double[]
+    + setHourlyEfficiency(hour: int, hourlyEfficiency: double): void
+}
+
+class BitcoinPrice {
+    - time: JsonObject
+    - disclaimer: String
+    - chartName: String
+    - bpi: JsonObject
+    + BitcoinPrice(time: JsonObject, disclaimer: String, chartName: String, bpi: JsonObject)
+    + getTime(): JsonObject
+    + getDisclaimer(): String
+    + getChartName(): String
+    + getBPI(): JsonObject
+    + getRate(currency: String): double
+}
+
+class MiningCalculator {
+    - filename: String
+    - bitcoinAmt: double
+    - miners: ArrayList<BitcoinMiner>
+    - energyRates: double[]
+    + MiningCalculator(filename: String, bitcoinAmt: double)
+    + getMiners(): ArrayList<BitcoinMiner>
+    + extractMinerData(): void
+    - extractEnergyRatesData(energyRatesFilename: String): void
+    + calculateIndividualMiningTime(): double[]
+    + calculateCollectiveMiningTime(): double
+    + calculateHourlyEfficiency(energyRatesFilename: String): void
+}
+
+APIAccessor --> BitcoinPrice: uses  
+MiningCalculator --> BitcoinMiner: uses
+
+@enduml
