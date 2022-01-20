@@ -1,4 +1,4 @@
-# Cryptocurrency Mining App
+# Cryptocurrency Mining Application
 
 **Author:** Aron Saengchan
 
